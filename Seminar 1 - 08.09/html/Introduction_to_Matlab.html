@@ -1,0 +1,90 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>&#1042;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1077; &#1074; Matlab</title><meta name="generator" content="MATLAB 9.9"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-09-03"><meta name="DC.source" content="Introduction_to_Matlab.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>&#1042;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1077; &#1074; Matlab</h1><!--introduction--><p>&#1057;&#1077;&#1084;&#1080;&#1085;&#1072;&#1088; &#8470;1, 8 &#1089;&#1077;&#1085;&#1090;&#1103;&#1073;&#1088;&#1103; 2021&#1075;.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">&#1047;&#1072;&#1087;&#1091;&#1089;&#1082; &#1080; &#1085;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1072;</a></li></ul></div><h2 id="1">&#1047;&#1072;&#1087;&#1091;&#1089;&#1082; &#1080; &#1085;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1072;</h2><p>&#1053;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1080; &#1052;&#1072;&#1090;&#1083;&#1072;&#1073;&#1072; &#1076;&#1086;&#1089;&#1091;&#1087;&#1085;&#1099; &#1074; &#1088;&#1072;&#1079;&#1076;&#1077;&#1083;&#1077; Preferences.</p><p><img vspace="5" hspace="5" src="../Figures/fig1_preferences_find.PNG" alt=""> </p><p>&#1057;&#1072;&#1084;&#1099;&#1077; &#1087;&#1088;&#1072;&#1082;&#1090;&#1080;&#1095;&#1085;&#1099;&#1077; &#1088;&#1072;&#1079;&#1076;&#1077;&#1083;&#1099;:</p><div><ol><li><b>Display</b> : &#1076;&#1083;&#1103; &#1091;&#1076;&#1086;&#1073;&#1085;&#1086;&#1075;&#1086; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103; &#1086;&#1082;&#1085;&#1072; &#1089; &#1082;&#1086;&#1076;&#1086;&#1084;</li><li><b>Fonts</b> : &#1076;&#1083;&#1103; &#1080;&#1079;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1077; &#1088;&#1072;&#1079;&#1084;&#1077;&#1088;&#1072; &#1096;&#1088;&#1080;&#1092;&#1090;&#1072;</li></ol></div><p><img vspace="5" hspace="5" src="../Figures/fig2_preferences_suggested.PNG" alt=""> </p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Введение в Matlab
+% Семинар №1,
+% 8 сентября 2021г.
+
+%% Запуск и настройка
+% Настройки Матлаба досупны в разделе Preferences.
+% 
+% <<../Figures/fig1_preferences_find.PNG>>
+% 
+% Самые практичные разделы: 
+% 
+% # *Display* : для удобного отображения окна с кодом
+% # *Fonts* : для изменение размера шрифта
+% 
+% <<../Figures/fig2_preferences_suggested.PNG>>
+% 
+
+##### SOURCE END #####
+--></body></html>
