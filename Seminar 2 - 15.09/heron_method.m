@@ -1,0 +1,29 @@
+function [a_root, iter, x] = heron_method(a, x_0)
+if nargin < 2
+    n = floor(log10(abs(a)));
+    if mod(n, 2) == 0
+        x_0 = 2 * 10^(n/2);
+    else
+        x_0 = 2 * 10^((n - 1)/2);
+    end
+end
+
+eps = 1e-6;
+iter_max = 100;
+x = NaN(iter_max + 1, 1);
+x(1) = x_0;
+
+iter = 1; % Iteration 1 is done
+x(iter + 1) = .5*(x(iter) + a/x(iter));
+
+while abs(x(iter + 1) - x(iter)) > eps
+    if iter > iter_max
+        error('Method did not converge');
+    end
+    iter = iter + 1;
+    x(iter + 1) = .5*(x(iter) + a/x(iter));
+end
+
+a_root = x(iter + 1);
+x = x(~isnan(x));
+end
