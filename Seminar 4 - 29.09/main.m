@@ -10,14 +10,18 @@ z = z(:);
 
 z_root = zeros(length(z), 1);
 for k = 1 : length(z)
-    z_root(k) = newton_method(f, df, z(k));
+    try
+        z_root(k) = newton_method(f, df, z(k));
+    catch
+        z_root(k) = NaN;
+    end
 end
 
 %%
-color_mat = zeros(length(z), 3);
-color_set = [0, 0.4470, 0.7410;
-    0.8500, 0.3250, 0.0980;
-    0.9290, 0.6940, 0.1250];
+color_mat = zeros(length(z), 3);% Black (default)
+color_set = [0, 0.4470, 0.7410; % Matlab blue
+    0.8500, 0.3250, 0.0980;     % Matlab red
+    0.9290, 0.6940, 0.1250];    % Matlab yelllow
 for k = 1 : length(true_roots)
     ind = abs(z_root - true_roots(k)) < 1e-4;
     color_mat(ind, :) = repmat(color_set(k, :), sum(ind), 1);
