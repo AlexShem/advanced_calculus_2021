@@ -3,15 +3,12 @@ beta = 1;
 
 V_0 = [2.2, .25, .05];
 T = 10;
-tspan = linspace(0, T, 100).';
+tspan = [0, T];
 
-V = zeros(length(tspan), length(V_0));
-
-%%
 figure(1);
 for k = 1 : length(V_0)
-    [~, V(:, k)] = ode45(@(t, y) alpha*y^(2/3) - beta*y, tspan, V_0(k));
-    plot(tspan, V(:, k))
+    [t, V] = ode45(@(t, y) alpha*y^(2/3) - beta*y, tspan, V_0(k));
+    plot(t, V)
     hold on;
 end
 hold off;
