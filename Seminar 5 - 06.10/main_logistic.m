@@ -18,3 +18,4 @@ for k = 1 : length(x_star)
     end
 end
 axis([0 T 0 min(1, max(x_0))])
+title(['c = ' num2str(c)]);
