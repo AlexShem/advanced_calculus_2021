@@ -6,7 +6,7 @@ tspan = [0, T];
 figure(2);
 for k = 1 : length(x_0)
     [t, x] = ode45(@(t, x) x - x.^2 - c, tspan, x_0(k));
-    plot(t, x, '-b');
+    plot(t, x, '-k');
     hold on;
 end
 hold off;
@@ -19,3 +19,5 @@ for k = 1 : length(x_star)
 end
 axis([0 T 0 min(1, max(x_0))])
 title(['c = ' num2str(c)]);
+xlabel('t');
+ylabel('x')
