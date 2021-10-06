@@ -12,7 +12,6 @@ line([0 T], [(alpha/beta)^3, (alpha/beta)^3], 'LineStyle', '--', 'Color', 'red')
 grid on;
 xlabel('t');
 ylabel('V');
-axis([0 T 0 2.5]);
 tl = title('$\dot{V} = \alpha V^{2/3} - \beta V$', 'Interpreter', 'latex');
 tl.FontSize = 14;
 subtitle(['\alpha = ' num2str(alpha), ', \beta = ', num2str(beta)]);
