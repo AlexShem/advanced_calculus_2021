@@ -6,14 +6,9 @@ T = 10;
 tspan = [0, T];
 
 figure(1);
-for k = 1 : length(V_0)
-    [t, V] = ode45(@(t, y) alpha*y^(2/3) - beta*y, tspan, V_0(k));
-    plot(t, V)
-    hold on;
-end
-hold off;
 [t, V] = ode45(@(t, y) alpha*y.^(2/3) - beta*y, tspan, V_0);
 plot(t, V)
+line([0 T], [(alpha/beta)^3, (alpha/beta)^3], 'LineStyle', '--', 'Color', 'red');
 grid on;
 xlabel('t');
 ylabel('V');
