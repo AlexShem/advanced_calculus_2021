@@ -29,3 +29,20 @@ for k = 1 : length(t)
     axis([-L, L, -L, L]);
     drawnow;
 end
+
+%%
+[z_1, z_2] = meshgrid(linspace(-4*pi, 4*pi, 21));
+dz_1 = z_2;
+dz_2 = -omega^2*sin(z_1);
+
+figure(3);
+quiver(z_1, z_2, dz_1, dz_2);
+xlabel('$x$', 'Interpreter', 'latex', 'FontSize', 16);
+ylabel('$\dot{x}$', 'Interpreter', 'latex', 'FontSize', 16, 'Rotation', 0);
+title('Pendulum phase portrait');
+
+figure(4);
+streamslice(z_1, z_2, dz_1, dz_2);
+xlabel('$x$', 'Interpreter', 'latex', 'FontSize', 16);
+ylabel('$\dot{x}$', 'Interpreter', 'latex', 'FontSize', 16, 'Rotation', 0);
+title('Pendulum phase portrait');
