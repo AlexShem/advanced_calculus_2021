@@ -3,7 +3,7 @@ g = 9.81;
 L = 1;
 omega = sqrt(g/L);
 
-z_0 = [5*pi/6; -2];
+z_0 = [4*pi/6; -2];
 T = 10;
 tspan = linspace(0, T, 101);
 
@@ -31,7 +31,7 @@ for k = 1 : length(t)
 end
 
 %%
-[z_1, z_2] = meshgrid(linspace(-4*pi, 4*pi, 41));
+[z_1, z_2] = meshgrid(linspace(-5*pi, 5*pi, 41), linspace(-4*pi, 4*pi, 41));
 dz_1 = z_2;
 dz_2 = -omega^2*sin(z_1);
 
