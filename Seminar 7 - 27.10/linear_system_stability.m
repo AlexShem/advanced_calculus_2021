@@ -11,7 +11,7 @@ f1 = figure(1);
 streamslice(x, y, dx, dy);
 axis([-1 1 -1 1]);
 axis equal;
-for k = 1 : size(V, 2)
+for k = 1 : size(Va, 2)
     line([0, Va(1, k)], [0, Va(2, k)], 'Color', 'red', 'LineWidth', 1.5);
 end
 
