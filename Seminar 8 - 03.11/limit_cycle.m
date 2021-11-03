@@ -1,4 +1,5 @@
-eps = -1;
+%% Фазовый портрет
+eps = -.5;
 R = 1;
 
 [x, y] = meshgrid(linspace(-2, 2, 101));
@@ -33,4 +34,4 @@ plot(z_0(:, 1), z_0(:, 2), '*r');
 plot(R*cos(phi), R*sin(phi), '-r', 'LineWidth', 2);
 hold off;
 axis equal;
-axis([-3 3 -3 3]);
+axis([-2 2 -2 2]);
