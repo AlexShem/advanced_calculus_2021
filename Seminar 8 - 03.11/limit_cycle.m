@@ -1,4 +1,4 @@
-eps = -.1;
+eps = -1;
 R = 1;
 
 [x, y] = meshgrid(linspace(-2, 2, 101));
@@ -17,12 +17,11 @@ plot(R*cos(phi), R*sin(phi), '-r', 'LineWidth', 1.5);
 hold off;
 axis equal;
 
-
+%% Сечение Пуанкаре
 z_0 = [0, 1.1;
     0, 2;
     0, .9;
     0, .5];
-% z_0 = [0, 1.1];
 tspan = [0, 2*pi];
 
 figure(2)
