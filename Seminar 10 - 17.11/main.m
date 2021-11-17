@@ -83,7 +83,7 @@ tspan = 0:tau:T;
 
 figure(3)
 for k = 1 : Nstart
-    [t, S] = ode45(@ode_system_2, tspan, [sx(k), sy(k), sz(k)]);
+    [t, S] = ode45(@(t, s) ode_system(t, s, pr_No), tspan, [sx(k), sy(k), sz(k)]);
     tl = length(t);
 %     plot3(S(:, 1), S(:, 2), S(:, 3), '-k'); hold on;
     plot3(S(round(tl/4):end, 1), S(round(tl/4):end, 2), S(round(tl/4):end, 3), '-k'); hold on;
