@@ -34,7 +34,7 @@ for k = 1 : n_par
 end
 
 figure(1)
-scatter(x_val, y_val, 'fill');
+scatter(x_val, y_val, 16, 'fill');
 hold on;
 plot(x, y_est, 'LineWidth', 2);
 hold off;
