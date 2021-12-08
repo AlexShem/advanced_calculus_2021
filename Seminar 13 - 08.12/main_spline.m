@@ -5,7 +5,7 @@ N = 5;
 xval = [0, sort(unifrnd(0, pi, 1, N-1)), pi];
 yval = sin(xval);
 
-x = linspace(0, pi, 1001);
+x = linspace(0, pi, 3001);
 
 h = diff(xval);
 lam = h(2:end) ./ (h(1:end-1) + h(2:end));
@@ -22,17 +22,17 @@ C = [1; C.'; -1];
 
 %% Spline
 m = A \ C;
-P = 0;
+P = zeros(size(x));
 for k = 1 : N
     if k == N
+        ind = x >= xval(k) & x <= xval(k+1);
         xx = x(x >= xval(k) & x <= xval(k+1));
     else
+        ind = x >= xval(k) & x < xval(k+1);
         xx = x(x >= xval(k) & x < xval(k+1));
     end
-    p = hermite_interp(xx, xval(k), xval(k+1), [yval(k), m(k), yval(k+1), m(k+1)]);
-    P = [P, p];
+    P(ind) = hermite_interp(xx, xval(k), xval(k+1), [yval(k), m(k), yval(k+1), m(k+1)]);
 end
-P = P(2:end);
 
 %% Visualisation
 figure(1);
