@@ -1,27 +1,33 @@
-function S = spline_custom(xval, yval, x)
-h = diff(xval);
-lam = h(2:end) ./ (h(1:end-1) + h(2:end));
-mu = 1 - lam;
-C = 3*lam.*(yval(2:end-1) - yval(1:end-2))./h(1:end-1) +...
-    3*mu.*(yval(3:end) - yval(2:end-1))./h(2:end);
+%% Initialization of the parameters
+a = 0;
+b = pi;
+L = b - a;
+N_range = 1 : 100;
+h_range = L./N_range;
 
-A = 2*eye(N+1) + diag([0, mu].*ones(1, N), 1) + diag([lam, 0].*ones(1, N), -1);
+x = linspace(a, b, 301);
+h = x(2) - x(1);
 
-%% Border conditions
-A(1, 2) = 0; A(end, end-1) = 0;
-A(1, 1) = 1; A(end, end) = 1;
-C = [1; C.'; -1];
+f_fun = @sin;
+f = f_fun(x);
 
-%% Spline
-m = A \ C;
-S = zeros(size(x));
-for k = 1 : N
-    if k == N
-        ind = x >= xval(k) & x <= xval(k+1);
-        xx = x(x >= xval(k) & x <= xval(k+1));
-    else
-        ind = x >= xval(k) & x < xval(k+1);
-        xx = x(x >= xval(k) & x < xval(k+1));
-    end
-    S(ind) = hermite_interp(xx, xval(k), xval(k+1), [yval(k), m(k), yval(k+1), m(k+1)]);
+%% Error compared to the true solution
+C_norm = zeros(length(N_range), 1);
+L2_norm = zeros(length(N_range), 1);
+
+for n = N_range
+    xval = linspace(0, pi, n+1);
+    yval = f_fun(xval);
+    S = spline_custom(xval, yval, x);
+    
+    C_norm(n) = max(abs(S - f));
+    L2_norm(n) = sqrt(h*sum((S - f).^2));
 end
+
+figure(1);
+loglog(h_range, C_norm);
+hold on;
+loglog(h_range, L2_norm);
+hold off;
+xlabel('h');
+legend('C norm', 'L_2 norm', 'Location', 'northwest', 'FontSize', 12)
