@@ -25,3 +25,4 @@ for k = 1 : N
     end
     S(ind) = hermite_interp(xx, xval(k), xval(k+1), [yval(k), m(k), yval(k+1), m(k+1)]);
 end
+end
