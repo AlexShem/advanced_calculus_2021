@@ -17,15 +17,17 @@ C = 3*lam.*(yval(2:end-1) - yval(1:end-2))./h(1:end-1) +...
 A = 2*eye(N+1) + diag([0, mu].*ones(1, N), 1) + diag([lam, 0].*ones(1, N), -1);
 
 %% Stability
-s = linspace(-10, 10);
-detA = zeros(size(s));
-for k = 1 : length(s)
-    A(1, 2) = s(k);
+alpha = linspace(-10, 10);
+detA = zeros(size(alpha));
+for k = 1 : length(alpha)
+    A(1, 2) = alpha(k);
     detA(k) = det(A);
 end
 
-figure(2);
-plot(s, detA);
+figure(1);
+plot(alpha, detA);
+xlabel('\alpha');
+legend('det(A)', 'FontSize', 14);
 
 %% Border conditions
 % First derivative value
@@ -49,7 +51,7 @@ for k = 1 : N
 end
 
 %% Visualisation
-figure(1);
+figure(2);
 scatter(xval, yval, 'fill');
 hold on;
 plot(x, S);
@@ -58,7 +60,7 @@ hold off;
 %% Spline MATLAB
 S_m = spline(xval, [1, yval, -1], x);
 % S_m = spline(xval, yval, x);
-figure(1);
+figure(2);
 hold on;
 plot(x, S_m, ':k');
 hold off;
