@@ -1,23 +1,33 @@
-N = 5;
+%% Initialization of the parameters
 a = 0;
 b = pi;
+L = b - a;
+N_range = 1 : 100;
+h_range = L./N_range;
 
-xval = linspace(0, pi, N+1);
+x = linspace(a, b, 301);
+h = x(2) - x(1);
+
 f_fun = @sin;
-yval = f_fun(xval);
+f = f_fun(x);
 
-%% Visualisation
-figure(1);
-scatter(xval, yval, 'fill');
-hold on;
-plot(x, S);
-hold off;
+%% Error compared to the true solution
+C_norm = zeros(length(N_range), 1);
+L2_norm = zeros(length(N_range), 1);
 
-%% Spline MATLAB
-S_m = spline(xval, [1, yval, -1], x);
-% S_m = spline(xval, yval, x);
+for n = N_range
+    xval = linspace(0, pi, n+1);
+    yval = f_fun(xval);
+    S = spline_custom(xval, yval, x);
+    
+    C_norm(n) = max(abs(S - f));
+    L2_norm(n) = sqrt(h*sum((S - f).^2));
+end
+
 figure(1);
+loglog(h_range, C_norm);
 hold on;
-plot(x, S_m, ':k');
+loglog(h_range, L2_norm);
 hold off;
-legend('Data', 'Custom Spline', 'Matlab Spline', 'FontSize', 14)
+xlabel('h');
+legend('C norm', 'L_2 norm', 'Location', 'northwest', 'FontSize', 12)

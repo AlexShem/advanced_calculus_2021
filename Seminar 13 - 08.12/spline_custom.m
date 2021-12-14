@@ -1,4 +1,5 @@
 function S = spline_custom(xval, yval, x)
+N = length(xval) - 1;
 h = diff(xval);
 lam = h(2:end) ./ (h(1:end-1) + h(2:end));
 mu = 1 - lam;
