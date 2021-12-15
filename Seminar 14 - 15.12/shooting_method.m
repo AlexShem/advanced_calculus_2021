@@ -7,10 +7,10 @@ X = 1;
 u0_val = 1;
 uT_val = exp(X/2);
 
-du = linspace(0, 1, 21);
+du0 = linspace(0, 1, 21);
 figure;
-for k = 1 : length(du)
-    u0 = [u0_val, du(k)];
+for k = 1 : length(du0)
+    u0 = [u0_val, du0(k)];
     [x, U] = ode45(@(x, u) syst_fun(x, u, r, dr, q, g), [0 X], u0);
     plot(x, U(:, 1), '--k'); hold on;
 end
